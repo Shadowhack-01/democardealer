@@ -11,6 +11,7 @@ import { BrandMarquee } from "@/components/brand-marquee"
 import CityGridBackground from "@/components/city-grid-background"
 import ShowroomVideo from "@/components/showroom-video"
 import Testimonials from "@/components/testimonials"
+import ContactLocation from "@/components/contact-location"
 
 import { Button } from "@/components/ui/button"
 
@@ -34,7 +35,7 @@ export default function HomePage() {
     { href: "#inventory", label: "Inventory" },
     { href: "#why-us", label: "Why Us" },
     { href: "#showroom", label: "Showroom" },
-    { href: "/contact", label: "Contact" },
+    { href: "#contact", label: "Contact" },
   ]
 
         return (
@@ -325,6 +326,9 @@ export default function HomePage() {
 
         {/* Testimonials */}
         <Testimonials />
+
+        {/* Contact Location */}
+        <ContactLocation />
 
         {/* CTA Banner */}
         <section className="py-16 px-4 bg-lime-400">
