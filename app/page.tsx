@@ -28,7 +28,7 @@ export default function HomePage() {
     const t = setTimeout(() => setShowHero(true), 500)
     return () => clearTimeout(t)
   }, [bgReady])
-  const WHATSAPP_LINK = "https://wa.me/2349032809424"
+  const WHATSAPP_LINK = "https://wa.me/2349099710000"
 
   const navLinks = [
     { href: "#inventory", label: "Inventory" },
@@ -73,7 +73,7 @@ export default function HomePage() {
             <div className="flex items-center gap-4">
               <Button
                 className="hidden md:flex bg-lime-400 text-black font-semibold hover:bg-lime-300"
-                onClick={() => window.open("https://wa.me/2349032809424", "_blank")}
+                onClick={() => window.open(WHATSAPP_LINK, "_blank")}
               >
                 <MessageCircle className="mr-2 h-4 w-4" />
                 Chat on WhatsApp
@@ -109,7 +109,7 @@ export default function HomePage() {
             ))}
             <Button
               className="w-full bg-lime-400 text-black font-semibold hover:bg-lime-300 mt-4"
-              onClick={() => window.open("https://wa.me/2349032809424", "_blank")}
+              onClick={() => window.open(WHATSAPP_LINK, "_blank")}
             >
               <MessageCircle className="mr-2 h-4 w-4" />
               Chat on WhatsApp
@@ -356,7 +356,7 @@ export default function HomePage() {
               <Button
                 size="lg"
                 className="bg-black text-lime-400 font-bold text-lg px-8 py-6 hover:bg-zinc-900"
-                onClick={() => window.open("https://wa.me/2349032809424", "_blank")}
+                onClick={() => window.open(WHATSAPP_LINK, "_blank")}
               >
                 Reserve Now on WhatsApp
               </Button>
@@ -373,7 +373,7 @@ export default function HomePage() {
             <div>
               <Link href="/" className="inline-block mb-4">
                 <span className="text-2xl font-bold text-white">
-                  WESTSTAR<span className="text-lime-400">.</span>
+                  NAIJA CAR SHOP<span className="text-lime-400">.</span>
                 </span>
               </Link>
               <p className="text-zinc-500 text-sm">
@@ -413,16 +413,16 @@ export default function HomePage() {
             <div>
               <h4 className="text-white font-semibold mb-4 uppercase tracking-wider text-sm">Contact</h4>
               <ul className="space-y-2 text-zinc-500 text-sm">
-                <li>Plot 47, Admiralty Way,</li>
-                <li>Lekki Phase 1, Lagos</li>
-                <li className="text-lime-400">+234 903 280 9424</li>
+                <li>8B Mobolaji Bank Anthony Way, beside AfriGlobal, Opebi</li>
+                <li>Ikeja 100271, Lagos</li>
+                <li><a href="tel:+2349099710000" className="text-lime-400">0909 971 0000</a></li>
               </ul>
             </div>
           </div>
 
-          <div className="mt-12 pt-8 border-t border-zinc-800 text-center text-zinc-600 text-sm">
-                © {new Date().getFullYear()} Naija Car Shop Ltd. All rights reserved.
-          </div>
+              <div className="mt-12 pt-8 border-t border-zinc-800 text-center text-zinc-600 text-sm">
+                © {new Date().getFullYear()} NAIJA CAR SHOP. All rights reserved.
+              </div>
         </div>
       </footer>
 
@@ -432,7 +432,7 @@ export default function HomePage() {
         animate={{ scale: 1 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        onClick={() => window.open("https://wa.me/2349032809424", "_blank")}
+        onClick={() => window.open(WHATSAPP_LINK, "_blank")}
         className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-lg shadow-green-500/30"
       >
         <MessageCircle className="h-6 w-6 text-white" />
