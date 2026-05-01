@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono, The_Nautigal } from 'next/font/google'
+import { Geist, Geist_Mono } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const _geist = Geist({ subsets: ["latin"] })
+const _geistMono = Geist_Mono({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
   title: 'Naija Car Shop Ltd. - Premium Luxury Vehicles in Nigeria',
@@ -35,8 +35,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className="bg-black">
-      <body className="font-sans antialiased bg-black text-white">
+    <html lang="en" className="bg-black" suppressHydrationWarning>
+      <body className={`font-sans antialiased bg-black text-white ${_geist.className} ${_geistMono.className}`}>
         {children}
         {process.env.NODE_ENV === 'production' && <Analytics />}
       </body>

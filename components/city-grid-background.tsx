@@ -3,7 +3,11 @@
 import { useEffect, useRef } from 'react';
 import * as THREE from 'three';
 
-export default function CityGridBackground() {
+type CityGridBackgroundProps = {
+  onReady?: () => void
+}
+
+export default function CityGridBackground({ onReady }: CityGridBackgroundProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
   const rafRef = useRef<number>(0);
@@ -37,6 +41,10 @@ export default function CityGridBackground() {
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     container.appendChild(renderer.domElement);
     rendererRef.current = renderer;
+
+    // Notify parent that the background has been initialized and the canvas is attached
+    // Use a microtask to ensure the DOM append has completed before signaling ready
+    Promise.resolve().then(() => onReady?.());
 
     // Material
     const gridMaterial = new THREE.MeshBasicMaterial({

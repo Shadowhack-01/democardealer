@@ -118,7 +118,7 @@ export default function VehicleDetailPage() {
         <section className="relative">
           <div className="grid lg:grid-cols-2 gap-0">
             {/* Image Gallery */}
-            <div className="relative aspect-[4/3] lg:aspect-auto lg:h-[calc(100vh-4rem)] bg-zinc-950">
+            <div className="relative aspect-4/3 lg:aspect-auto lg:h-[calc(100vh-4rem)] bg-zinc-950">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentImageIndex}
@@ -136,7 +136,7 @@ export default function VehicleDetailPage() {
                     priority
                   />
                   {/* Gradient overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
                 </motion.div>
               </AnimatePresence>
 
@@ -314,7 +314,7 @@ export default function VehicleDetailPage() {
                       key={item.title}
                       className="flex items-start gap-3 p-4 bg-zinc-900/30 rounded-xl border border-zinc-800"
                     >
-                      <item.icon className="h-5 w-5 text-lime-400 flex-shrink-0 mt-0.5" />
+                      <item.icon className="h-5 w-5 text-lime-400 shrink-0 mt-0.5" />
                       <div>
                         <p className="text-sm font-medium text-white">{item.title}</p>
                         <p className="text-xs text-zinc-500">{item.desc}</p>
@@ -344,15 +344,15 @@ export default function VehicleDetailPage() {
                     transition={{ delay: index * 0.1 }}
                   >
                     <Link href={`/vehicles/${relatedVehicle.slug}`}>
-                      <div className="group relative bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 hover:border-lime-400/50 transition-all">
-                        <div className="relative aspect-[16/10] overflow-hidden">
+                        <div className="group relative bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 hover:border-lime-400/50 transition-all">
+                        <div className="relative aspect-16/10 overflow-hidden">
                           <Image
                             src={relatedVehicle.images[0]}
                             alt={relatedVehicle.name}
                             fill
                             className="object-cover group-hover:scale-105 transition-transform duration-500"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent" />
+                          <div className="absolute inset-0 bg-linear-to-t from-zinc-900 via-transparent to-transparent" />
                           {relatedVehicle.verified && (
                             <Badge className="absolute top-3 left-3 bg-lime-400 text-black text-xs">
                               Verified

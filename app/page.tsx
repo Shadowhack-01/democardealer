@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Phone, MessageCircle, Menu, X } from "lucide-react"
@@ -16,6 +16,18 @@ import { Button } from "@/components/ui/button"
 
 export default function HomePage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [bgReady, setBgReady] = useState(false)
+  const [showHero, setShowHero] = useState(false)
+
+  // When the background signals it's ready, delay showing the hero slightly
+  useEffect(() => {
+    if (!bgReady) {
+      setShowHero(false)
+      return
+    }
+    const t = setTimeout(() => setShowHero(true), 500)
+    return () => clearTimeout(t)
+  }, [bgReady])
   const WHATSAPP_LINK = "https://wa.me/2349032809424"
 
   const navLinks = [
@@ -111,7 +123,7 @@ export default function HomePage() {
         {/* Hero Section */}
         <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
           {/* Animated Background (Three.js) */}
-          <CityGridBackground />
+          <CityGridBackground onReady={() => setBgReady(true)} />
 
           {/* Gradient overlay */}
           <div
@@ -123,7 +135,8 @@ export default function HomePage() {
           />
 
           {/* Content (sized/placed per provided snippet) */}
-          <div className="relative z-2 max-w-225 mx-auto px-6 text-center pt-20 pb-16">
+          {showHero && (
+            <div className="relative z-2 max-w-225 mx-auto px-6 text-center pt-20 pb-16">
             {/* Badge row */}
             <motion.div
               initial={{ opacity: 0, y: -8 }}
@@ -150,6 +163,7 @@ export default function HomePage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
               className="font-heading font-extrabold text-5xl md:text-7xl uppercase leading-[1.05] tracking-[-0.02em] text-white"
+              style={{ fontFamily: 'var(--font-sans)' }}
             >
               <span className={`block transition-all duration-800`} style={{ transitionDelay: '400ms' }}>
                 OWN LUXURY.
@@ -195,22 +209,25 @@ export default function HomePage() {
                 CHAT ON WHATSAPP
               </a>
             </motion.div>
-          </div>
+            </div>
+          )}
 
           {/* Scroll indicator */}
-          <motion.div
-            className="absolute bottom-8 left-1/2 -translate-x-1/2"
-            animate={{ y: [0, 10, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity }}
-          >
-            <div className="w-6 h-10 border-2 border-zinc-600 rounded-full flex items-start justify-center p-2">
-              <motion.div
-                className="w-1.5 h-1.5 bg-lime-400 rounded-full"
-                animate={{ y: [0, 12, 0] }}
-                transition={{ duration: 1.5, repeat: Infinity }}
-              />
-            </div>
-          </motion.div>
+          {showHero && (
+            <motion.div
+              className="absolute bottom-8 left-1/2 -translate-x-1/2"
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+            >
+              <div className="w-6 h-10 border-2 border-zinc-600 rounded-full flex items-start justify-center p-2">
+                <motion.div
+                  className="w-1.5 h-1.5 bg-lime-400 rounded-full"
+                  animate={{ y: [0, 12, 0] }}
+                  transition={{ duration: 1.5, repeat: Infinity }}
+                />
+              </div>
+            </motion.div>
+          )}
         </section>
 
         {/* Brand Marquee */}

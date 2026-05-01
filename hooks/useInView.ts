@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useState } from "react"
 
-export function useInView(threshold = 0.1) {
+export function useInView<T extends Element = HTMLElement>(threshold = 0.1) {
   const [isInView, setIsInView] = useState(false)
-  const [node, setNode] = useState<Element | null>(null)
+  const [node, setNode] = useState<T | null>(null)
 
   useEffect(() => {
     if (!node) return
@@ -16,9 +16,9 @@ export function useInView(threshold = 0.1) {
     return () => observer.disconnect()
   }, [node, threshold])
 
-  const ref = useCallback((el: Element | null) => {
+  const ref = useCallback((el: T | null) => {
     setNode(el)
   }, [])
 
-  return { ref, isInView }
+  return { ref, isInView } as { ref: (el: T | null) => void; isInView: boolean }
 }

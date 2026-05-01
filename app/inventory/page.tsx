@@ -129,7 +129,7 @@ export default function InventoryPage() {
 
       <main className="pt-16">
         {/* Hero */}
-        <section className="py-12 px-4 bg-gradient-to-b from-zinc-900 to-black">
+        <section className="py-12 px-4 bg-linear-to-b from-zinc-900 to-black">
           <div className="max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -381,14 +381,14 @@ export default function InventoryPage() {
                       <Link href={`/vehicles/${vehicle.slug}`}>
                         <div className="group relative bg-zinc-900 rounded-2xl overflow-hidden border border-zinc-800 hover:border-lime-400/50 transition-all duration-300 hover:-translate-y-1">
                           {/* Image */}
-                          <div className="relative aspect-[4/3] overflow-hidden">
+                          <div className="relative aspect-4/3 overflow-hidden">
                             <Image
                               src={vehicle.images[0]}
                               alt={vehicle.name}
                               fill
                               className="object-cover group-hover:scale-110 transition-transform duration-500"
                             />
-                            <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent" />
+                            <div className="absolute inset-0 bg-linear-to-t from-zinc-900 via-transparent to-transparent" />
                             
                             {/* Verified badge */}
                             {vehicle.verified && (
@@ -436,7 +436,7 @@ export default function InventoryPage() {
                       <Link href={`/vehicles/${vehicle.slug}`}>
                         <div className="group flex flex-col sm:flex-row bg-zinc-900 rounded-xl overflow-hidden border border-zinc-800 hover:border-lime-400/50 transition-all">
                           {/* Image */}
-                          <div className="relative w-full sm:w-72 aspect-video sm:aspect-auto sm:h-48 flex-shrink-0 overflow-hidden">
+                          <div className="relative w-full sm:w-72 aspect-video sm:aspect-auto sm:h-48 shrink-0 overflow-hidden">
                             <Image
                               src={vehicle.images[0]}
                               alt={vehicle.name}
