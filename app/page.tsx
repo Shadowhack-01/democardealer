@@ -33,7 +33,6 @@ export default function HomePage() {
   const navLinks = [
     { href: "#inventory", label: "Inventory" },
     { href: "#why-us", label: "Why Us" },
-    { href: "#financing", label: "Financing" },
     { href: "#showroom", label: "Showroom" },
     { href: "#contact", label: "Contact" },
   ]
@@ -385,7 +384,7 @@ export default function HomePage() {
             <div>
               <h4 className="text-white font-semibold mb-4 uppercase tracking-wider text-sm">Quick Links</h4>
               <ul className="space-y-2">
-                {["Inventory", "Financing", "Showroom", "Contact"].map((link) => (
+                {["Inventory", "Showroom", "Contact"].map((link) => (
                   <li key={link}>
                     <Link href="#" className="text-zinc-500 hover:text-lime-400 transition-colors text-sm">
                       {link}
