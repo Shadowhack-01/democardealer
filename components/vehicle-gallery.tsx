@@ -211,7 +211,7 @@ export function VehicleGallery() {
                           className="bg-lime-400 text-black hover:bg-lime-300"
                           onClick={(e) => {
                             e.preventDefault()
-                            window.open("https://wa.me/2349032809424", "_blank")
+                            window.open("https://wa.me/2349099710000", "_blank")
                           }}
                         >
                           Chat to Buy

@@ -244,7 +244,7 @@ export function VehicleDetailModal({ isOpen, onClose, vehicle }: VehicleDetailMo
               <div className="space-y-3 mt-auto">
                 <Button
                   className="w-full bg-lime-400 text-black font-semibold hover:bg-lime-300 h-12"
-                  onClick={() => window.open("https://wa.me/2349032809424", "_blank")}
+                  onClick={() => window.open("https://wa.me/2349099710000", "_blank")}
                 >
                   <MessageCircle className="mr-2 h-5 w-5" />
                   Chat on WhatsApp
