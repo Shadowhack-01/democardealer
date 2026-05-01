@@ -34,7 +34,7 @@ export default function HomePage() {
     { href: "#inventory", label: "Inventory" },
     { href: "#why-us", label: "Why Us" },
     { href: "#showroom", label: "Showroom" },
-    { href: "#contact", label: "Contact" },
+    { href: "/contact", label: "Contact" },
   ]
 
         return (
